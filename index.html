@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.select-group {
+			margin-bottom: 30px;
+			padding: 20px 10px;
+		}
+		.select-group label {
+			max-width: 170px;
+			width: 150px;
+			margin-bottom: 20px;
+			margin-right: 10px;
+			padding: 10px;
+			font-size: 16px;
+			border: 1px solid #f9f9f9;
+			border-radius: 5px;
+		}
+		.select-group label:hover,
+		.select-group label.is-select {
+			border: 1px solid #ccc;
+			background-color: #fff;
+		}
+		.select-group label:first-child {
+			color: #008aff;
+		}
+		.select-group input[type="checkbox"] {
+			display: inline-block;
+			margin-right: 10px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$(function(){
+			$('.group-list label input').click(function(){
+				$(this).parent().toggleClass('is-select');
+			});
+		});
+
+		$(function(){
+			$('.group-list label:first-child input').click(function(){
+				var items = $(this).parent().nextAll().find('input');
+				if($(this).is(':checked')) {
+					 $(items).prop('checked', true);
+				} else {
+					$(items).prop('checked', false);
+				}
+				$('.group-list label').toggleClass('is-select');
+				$(this).parent().toggleClass('is-select');
+			});
+		});
+	</script>
+</head>
+<body>
+	<form class="form">
+		<fieldset class="select-group">
+			<legend><a href="javascript:;" class="slideTrg">グループ名A</a></legend>
+			<div class="group-list">
+				<label for="userA00"><input type="checkbox" name="selectnameA" value="すべて選択" id="userA00">すべて選択</label>
+				<label for="userA01"><input type="checkbox" name="selectnameA" value="げこたん" id="userA01">げこたん</label>
+				<label for="userA02"><input type="checkbox" name="selectnameA" value="じゅんさん" id="userA02">じゅんさん</label>
+				<label for="userA03"><input type="checkbox" name="selectnameA" value="てんちゃん" id="userA03">てんちゃん</label>
+				<label for="userA04"><input type="checkbox" name="selectnameA" value="まとりん" id="userA04">まとりん</label>
+			<!-- /.select-group --></div>
+		</fieldset>
+		<fieldset class="select-group">
+			<legend><a href="javascript:;" class="slideTrg">グループ名B</a></legend>
+			<div class="group-list">
+				<label for="userB00"><input type="checkbox" name="selectnameB" value="すべて選択" id="userB00">すべて選択</label>
+				<label for="userB01"><input type="checkbox" name="selectnameB" value="げこたん" id="userB01">げこたん</label>
+				<label for="userB02"><input type="checkbox" name="selectnameB" value="じゅんさん" id="userB02">じゅんさん</label>
+				<label for="userB03"><input type="checkbox" name="selectnameB" value="てんちゃん" id="userB03">てんちゃん</label>
+				<label for="userB04"><input type="checkbox" name="selectnameB" value="まとりん" id="userB04">まとりん</label>
+			<!-- /.select-group --></div>
+		</fieldset>
+</form>
+</body>
+</html>
